@@ -1,0 +1,1501 @@
+/* =====================================================
+   Employee My Attendance - Part 1
+   Container + Header + Popup + Main Layout
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.employee-attendance-container{
+    padding:25px;
+    background:#f5f7fb;
+    min-height:100vh;
+}
+
+/* Header */
+
+.attendance-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.attendance-header h2{
+    font-size:30px;
+    font-weight:700;
+    color:#1f2937;
+}
+
+.attendance-btn{
+    background:linear-gradient(90deg,#2f63d8,#2149c9);
+    color:#fff;
+    border:none;
+    padding:12px 24px;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.attendance-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(33,73,201,.25);
+}
+
+/* Overlay */
+
+.popup-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+/* Popup */
+
+.popup-box{
+    width:95%;
+    max-width:1450px;
+    max-height:92vh;
+    overflow-y:auto;
+    background:#f5f7fb;
+    border-radius:20px;
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
+    padding:25px;
+    animation:popupOpen .35s ease;
+}
+
+@keyframes popupOpen{
+
+    from{
+        opacity:0;
+        transform:translateY(-25px) scale(.98);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+}
+
+/* Header */
+
+.popup-header{
+    margin:-25px -25px 25px;
+    padding:22px 28px;
+    background:linear-gradient(90deg,#2f63d8,#2149c9);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-radius:20px 20px 0 0;
+}
+
+.popup-title h2{
+    color:#fff;
+    font-size:28px;
+    font-weight:700;
+}
+
+.popup-title p{
+    color:#dbeafe;
+    margin-top:6px;
+    font-size:14px;
+}
+
+.close-btn{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:#ef4444;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+}
+
+/* Main Layout */
+
+.attendance-form{
+    margin-top:15px;
+}
+
+.attendance-main-layout{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:22px;
+    align-items:start;
+}
+
+.attendance-left{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+.attendance-right{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+
+/* =====================================================
+   Employee My Attendance - Part 2
+   Premium Cards + Form
+===================================================== */
+
+.info-card,
+.deployment-card,
+.location-card,
+.selfie-card,
+.status-card{
+    background:#fff;
+    border:1px solid #e2e8f0;
+    border-radius:18px;
+    padding:22px;
+        width: 534px;
+    box-shadow:0 10px 28px rgba(15,23,42,.08);
+    transition:.3s;
+}
+
+.info-card:hover,
+.deployment-card:hover,
+.location-card:hover,
+.selfie-card:hover,
+.status-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 35px rgba(15,23,42,.12);
+}
+
+/* Card Title */
+
+.card-title{
+    font-size:20px;
+    font-weight:700;
+    color:#2149c9;
+    margin-bottom:18px;
+    padding-bottom:12px;
+    border-bottom:2px solid #e8efff;
+}
+
+/* Form */
+
+.form-row{
+    display:flex;
+    gap:18px;
+    margin-bottom:18px;
+}
+
+.form-group{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group label{
+    font-size:14px;
+    font-weight:600;
+    color:#374151;
+    margin-bottom:8px;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    background:#fff;
+    font-size:14px;
+    color:#111827;
+    transition:.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    outline:none;
+    border-color:#2149c9;
+    box-shadow:0 0 0 3px rgba(33,73,201,.15);
+}
+
+.form-group input[readonly],
+.form-group textarea[readonly]{
+    background:#f8fafc;
+    color:#475569;
+    cursor:not-allowed;
+}
+
+.form-group textarea{
+    resize:none;
+    min-height:90px;
+}
+
+
+
+
+
+/* ==========================
+   Today's Status
+========================== */
+
+.attendance-status-card{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:14px;
+    padding:20px;
+}
+
+.attendance-status-card p{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:14px 0;
+    font-size:15px;
+    color:#374151;
+}
+
+.attendance-status-card strong{
+    color:#111827;
+}
+
+.status-present{
+    color:#16a34a;
+    font-weight:700;
+}
+
+/* ==========================
+   Buttons
+========================== */
+
+.button-row{
+    display:flex;
+    gap:16px;
+    margin-top:10px;
+}
+
+.punch-in-btn,
+.punch-out-btn{
+    flex:1;
+    height:52px;
+    border:none;
+    border-radius:12px;
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.punch-in-btn{
+    background:linear-gradient(90deg,#16a34a,#15803d);
+}
+
+.punch-out-btn{
+    background:linear-gradient(90deg,#ef4444,#dc2626);
+}
+
+.punch-in-btn:hover,
+.punch-out-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 22px rgba(0,0,0,.18);
+}
+
+
+
+/* =====================================================
+   Employee My Attendance - Part 4
+   Attendance History + Responsive
+===================================================== */
+
+/* ==========================
+   Attendance History
+========================== */
+
+.attendance-history{
+    margin-top:30px;
+    background:#ffffff;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 10px 28px rgba(15,23,42,.08);
+}
+
+.attendance-history h3{
+    font-size:22px;
+    font-weight:700;
+    color:#2149c9;
+    margin-bottom:20px;
+}
+
+.attendance-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.attendance-table thead{
+    background:#2149c9;
+}
+
+.attendance-table th{
+    padding:16px;
+    color:#fff;
+    font-size:15px;
+    text-align:left;
+}
+
+.attendance-table td{
+    padding:16px;
+    border-bottom:1px solid #e5e7eb;
+    font-size:14px;
+    color:#374151;
+}
+
+.attendance-table tbody tr:hover{
+    background:#f8fbff;
+}
+
+.present{
+    color:#16a34a;
+    font-weight:700;
+}
+
+.late{
+    color:#f59e0b;
+    font-weight:700;
+}
+
+.absent{
+    color:#dc2626;
+    font-weight:700;
+}
+
+/* ==========================
+   Scrollbar
+========================== */
+
+.popup-box::-webkit-scrollbar{
+    width:8px;
+}
+
+.popup-box::-webkit-scrollbar-thumb{
+    background:#cbd5e1;
+    border-radius:20px;
+}
+
+.popup-box::-webkit-scrollbar-thumb:hover{
+    background:#94a3b8;
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width:1100px){
+
+    .attendance-main-layout{
+        grid-template-columns:1fr;
+    }
+
+    .attendance-right{
+        order:-1;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .attendance-header{
+        flex-direction:column;
+        gap:15px;
+        align-items:flex-start;
+    }
+
+    .form-row{
+        flex-direction:column;
+    }
+
+    .button-row{
+        flex-direction:column;
+    }
+
+    .popup-box{
+        width:98%;
+        padding:18px;
+    }
+
+    .popup-header{
+        margin:-18px -18px 20px;
+        padding:18px;
+    }
+
+    .attendance-table{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+
+  }
+
+
+
+
+
+
+
+
+  /* =====================================================
+   Final Layout Improvements
+===================================================== */
+
+.attendance-left{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+.attendance-right{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    position:sticky;
+    top:20px;
+}
+
+.selfie-card{
+    min-height:430px;
+}
+
+.status-card{
+    min-height:260px;
+}
+
+.button-row{
+    margin-top:auto;
+}
+
+.location-card textarea{
+    min-height:110px;
+}
+
+.attendance-status-card p{
+    padding:10px 0;
+    border-bottom:1px solid #edf2f7;
+}
+
+.attendance-status-card p:last-child{
+    border-bottom:none;
+}
+
+
+
+/* ==========================
+
+   Professional Button Area
+
+========================== */
+
+
+
+.button-row{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+
+
+.button-row button{
+
+    flex:1;
+
+    height:55px;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    border-radius:12px;
+
+}
+
+
+
+.punch-in-btn{
+
+    background:linear-gradient(90deg,#16a34a,#15803d);
+
+}
+
+
+
+.punch-out-btn{
+
+    background:linear-gradient(90deg,#ef4444,#dc2626);
+
+}
+
+
+
+/* =====================================================
+   Employee My Attendance - Part 3
+   Selfie + Status + Buttons
+===================================================== */
+
+/* ==========================
+   Selfie Card
+========================== */
+
+.camera-box{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.camera-header-box{
+    width:100%;
+    background:#f8fbff;
+    border:2px solid #dbeafe;
+    border-radius:14px;
+    padding:30px 20px;
+    text-align:center;
+}
+
+.camera-icon{
+    margin-bottom:18px;
+}
+
+.camera-icon img{
+    width:85px;
+    height:85px;
+}
+
+.camera-header-box h2{
+    font-size:22px;
+    font-weight:700;
+    color:#1f2937;
+    margin-bottom:10px;
+}
+
+.camera-header-box p{
+    font-size:15px;
+    color:#6b7280;
+    margin-bottom:25px;
+}
+
+.camera-preview,
+.captured-image{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:14px;
+    border:2px solid #dbeafe;
+    background:#000;
+}
+
+.capture-btn{
+    width:280px;
+    height:48px;
+    margin:0 auto;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.capture-btn:hover{
+    background:#1d4ed8;
+}
+
+.selfie-info{
+    display:flex;
+    gap:15px;
+    align-items:flex-start;
+    background:#ecfdf5;
+    border:1px solid #bbf7d0;
+    border-radius:14px;
+    padding:18px;
+}
+
+.selfie-info-icon{
+    font-size:32px;
+    line-height:1;
+}
+
+.selfie-info h4{
+    color:#15803d;
+    font-size:18px;
+    margin-bottom:6px;
+}
+
+.selfie-info p{
+    color:#166534;
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* ==========================
+   Today's Status
+========================== */
+
+.attendance-status-card{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:14px;
+    padding:20px;
+}
+
+.attendance-status-card p{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid #edf2f7;
+}
+
+.attendance-status-card p:last-child{
+    border-bottom:none;
+}
+
+/* ==========================
+   Buttons
+========================== */
+
+.button-row{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.punch-in-btn,
+.punch-out-btn{
+    flex:1;
+    height:52px;
+    border:none;
+    border-radius:12px;
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.punch-in-btn{
+    background:linear-gradient(90deg,#16a34a,#15803d);
+}
+
+.punch-out-btn{
+    background:linear-gradient(90deg,#ef4444,#dc2626);
+}
+
+
+
+
+/* ======================================
+   Page Header
+====================================== */
+
+.attendance-page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.attendance-page-header h2{
+    font-size:42px;
+    color:#173b74;
+    font-weight:700;
+}
+
+.attendance-page-header p{
+    color:#6b7280;
+    margin-top:6px;
+}
+
+/* ======================================
+   Toolbar
+====================================== */
+
+.attendance-toolbar{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:20px;
+}
+
+.attendance-btn{
+    background:#2563eb;
+    color:#fff;
+    border:none;
+    padding:14px 28px;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.attendance-btn:hover{
+    background:#1d4ed8;
+}
+
+
+
+
+/* ===========================
+   Dashboard Cards
+=========================== */
+
+.attendance-dashboard{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+    margin-bottom:30px;
+}
+
+.dashboard-card{
+    background:#fff;
+    border-radius:18px;
+    padding:28px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    border-left:5px solid #2563eb;
+}
+
+.dashboard-card h2{
+    font-size:42px;
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.dashboard-card p{
+    color:#6b7280;
+}
+
+.dashboard-card.green{
+    border-left-color:#16a34a;
+}
+
+.dashboard-card.red{
+    border-left-color:#dc2626;
+}
+
+.dashboard-card.orange{
+    border-left-color:#f59e0b;
+}
+
+@media(max-width:1000px){
+
+.attendance-dashboard{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:650px){
+
+.attendance-dashboard{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+
+
+
+/* ================= GPS CARD ================= */
+
+.gps-card{
+    margin-top:20px;
+    background:#fff;
+    border-radius:14px;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.gps-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.refresh-location-btn{
+    border:none;
+    background:#2563eb;
+    color:#fff;
+    padding:8px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.refresh-location-btn:hover{
+    background:#1d4ed8;
+}
+
+.gps-map{
+    margin-bottom:18px;
+    padding:8px;
+    background:#ffffff;
+    border:2px solid #dbeafe;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(37,99,235,.10);
+}
+
+
+.gps-map iframe{
+    width:100%;
+    height:260px;
+    border:none;
+    border-radius:14px;
+    display:block;
+}
+
+
+
+
+.gps-map{
+    transition:all .3s ease;
+}
+
+.gps-map:hover{
+    border-color:#3b82f6;
+    box-shadow:0 12px 28px rgba(37,99,235,.18);
+    transform:translateY(-2px);
+}
+
+
+
+
+
+
+
+.gps-loading,
+.gps-error{
+    text-align:center;
+    padding:30px;
+    font-weight:600;
+}
+
+.gps-error{
+    color:#dc2626;
+}
+
+.gps-info{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.gps-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+}
+
+.gps-item:last-child{
+    border-bottom:none;
+}
+
+.gps-item strong{
+    color:#374151;
+}
+
+.gps-item span{
+    text-align:right;
+    max-width:65%;
+    word-break:break-word;
+}
+
+@media(max-width:900px){
+
+    .gps-item{
+        flex-direction:column;
+        gap:6px;
+    }
+
+    .gps-item span{
+        max-width:100%;
+        text-align:left;
+    }
+
+}
+
+
+/* Header Card */
+
+.attendance-page-header{
+    width:100%;
+    margin-bottom:30px;
+}
+
+.attendance-header-card{
+    width:100%;
+    background:#ffffff;
+    border-radius:18px;
+    padding:25px 30px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+.attendance-header-card h2{
+    font-size:42px;
+    color:#173b74;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.attendance-header-card p{
+    color:#6b7280;
+    font-size:16px;
+}
+
+
+
+
+
+
+
+
+/* ==========================================
+   Premium GPS Card - GuardX Style
+========================================== */
+
+.gps-card{
+    width:100%;
+    background:#ffffff;
+    border-radius:20px;
+    padding:24px;
+    border:1px solid #dbe7ff;
+    box-shadow:0 10px 30px rgba(37,99,235,.10);
+    transition:all .3s ease;
+}
+
+.gps-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 40px rgba(37,99,235,.18);
+}
+
+.gps-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+    padding-bottom:15px;
+    border-bottom:2px solid #edf4ff;
+}
+
+.gps-header .card-title{
+    margin:0;
+    padding:0;
+    border:none;
+    color:#1e293b;
+}
+
+.refresh-location-btn{
+    background:linear-gradient(90deg,#2563eb,#1d4ed8);
+    color:#fff;
+    border:none;
+    padding:10px 18px;
+    border-radius:10px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.refresh-location-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(37,99,235,.25);
+}
+
+/* ---------- MAP ---------- */
+
+.gps-map{
+    padding:8px;
+    background:#f8fbff;
+    border:2px solid #cfe2ff;
+    border-radius:18px;
+    overflow:hidden;
+    margin-bottom:20px;
+    box-shadow:0 6px 18px rgba(37,99,235,.10);
+    transition:.3s;
+}
+
+.gps-map:hover{
+    border-color:#3b82f6;
+    box-shadow:0 12px 30px rgba(37,99,235,.18);
+}
+
+.gps-map iframe{
+    width:100%;
+    height:280px;
+    border:none;
+    border-radius:14px;
+    display:block;
+}
+
+/* ---------- INFO ---------- */
+
+.gps-info{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+
+
+.gps-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 16px;
+    background:#f8fbff;
+    border:1px solid #e5efff;
+    border-radius:12px;
+}
+
+.gps-item strong{
+    color:#173b74;
+    font-size:15px;
+}
+
+.gps-item span{
+    color:#374151;
+    font-weight:600;
+    text-align:right;
+    max-width:65%;
+    word-break:break-word;
+}
+
+/* Live Status */
+
+.gps-item:last-child{
+    background:#ecfdf5;
+    border:1px solid #bbf7d0;
+}
+
+
+.gps-actions{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.live-badge{
+    background:#dcfce7;
+    color:#15803d;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:700;
+    border:1px solid #bbf7d0;
+}
+
+
+
+.punch-in-btn:disabled,
+.punch-out-btn:disabled{
+    background:#cbd5e1 !important;
+    cursor:not-allowed;
+    opacity:.7;
+    box-shadow:none;
+}
+
+
+
+
+
+
+/* ================= PROFESSIONAL CARD TITLE ================= */
+
+.card-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-size:20px;
+    font-weight:700;
+    color:#1e293b;
+
+    margin:0 0 18px 0;
+}
+
+.card-title-icon{
+    width:22px;
+    height:22px;
+
+    color:#2563eb;
+
+    flex-shrink:0;
+}
+
+/* ================= GPS ICONS ================= */
+
+.gps-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:14px 0;
+
+    border-bottom:1px solid #edf2f7;
+}
+
+.gps-item:last-child{
+    border-bottom:none;
+}
+
+.gps-item strong{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    font-size:15px;
+    font-weight:600;
+    color:#334155;
+}
+
+.gps-item span{
+    font-size:14px;
+    font-weight:500;
+    color:#475569;
+    text-align:right;
+}
+
+.gps-icon{
+    width:18px;
+    height:18px;
+
+    color:#2563eb;
+
+    flex-shrink:0;
+}
+
+/* ================= REFRESH BUTTON ================= */
+
+.refresh-location-btn{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    background:#2563eb;
+    color:#fff;
+
+    border:none;
+    border-radius:10px;
+
+    padding:10px 18px;
+
+    font-size:14px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.refresh-location-btn:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+.refresh-icon{
+    width:18px;
+    height:18px;
+}
+
+
+
+
+
+
+/* ================= FIELD LABEL ICONS ================= */
+
+.form-group label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    font-size:14px;
+    font-weight:600;
+    color:#374151;
+
+    margin-bottom:8px;
+}
+
+.field-icon{
+    width:16px;
+    height:16px;
+    color:#2563eb;
+}
+
+
+/* =========================================================
+   FACE VERIFICATION UI
+   ========================================================= */
+
+.captured-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.captured-image-wrapper .captured-image {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Face verification overlay */
+
+.face-status-overlay {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 13px 15px;
+
+  border-radius: 12px;
+
+  backdrop-filter: blur(8px);
+
+  color: #ffffff;
+}
+
+.face-status-overlay.checking {
+  background: rgba(37, 99, 235, 0.92);
+}
+
+.face-status-overlay.matched {
+  background: rgba(22, 163, 74, 0.92);
+}
+
+.face-status-overlay.failed {
+  background: rgba(220, 38, 38, 0.92);
+}
+
+.face-status-overlay.error {
+  background: rgba(234, 88, 12, 0.92);
+}
+
+.face-status-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.18);
+
+  font-size: 18px;
+}
+
+.face-status-overlay strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.face-status-overlay span {
+  display: block;
+  font-size: 12px;
+  opacity: 0.92;
+}
+
+/* Main verification status */
+
+.face-verification-status {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  margin-top: 16px;
+  padding: 14px 16px;
+
+  border-radius: 12px;
+
+  border: 1px solid #e5e7eb;
+
+  background: #f8fafc;
+}
+
+.face-verification-status.checking {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.face-verification-status.matched {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.face-verification-status.failed {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.face-verification-status.error {
+  background: #fff7ed;
+  border-color: #fed7aa;
+}
+
+.face-verification-status .status-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.face-verification-status strong {
+  display: block;
+  font-size: 14px;
+  color: #111827;
+  margin-bottom: 3px;
+}
+
+.face-verification-status p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+/* Verification checklist */
+
+.face-check-list {
+  margin-top: 14px;
+  padding: 12px 14px;
+
+  border-radius: 12px;
+
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+}
+
+.face-check-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 6px 0;
+}
+
+.face-check-item span {
+  width: 22px;
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #dcfce7;
+  color: #16a34a;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.face-check-item p {
+  margin: 0;
+
+  font-size: 12px;
+  color: #475569;
+}
+
+.face-check-item.pending span {
+  background: #f1f5f9;
+  color: #94a3b8;
+}
+
+.face-check-item.pending p {
+  color: #94a3b8;
+}
+
+/* Camera placeholder */
+
+.camera-placeholder {
+  width: 100%;
+  max-width: 360px;
+  height: 360px;
+
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+
+  text-align: center;
+}
+
+.camera-placeholder-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.camera-placeholder p {
+  margin: 0 0 5px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  color: #334155;
+}
+
+.camera-placeholder span {
+  max-width: 240px;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #64748b;
+}
+
+/* Disable punch buttons while face verification is incomplete */
+
+.punch-in-btn:disabled,
+.punch-out-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}

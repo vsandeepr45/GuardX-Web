@@ -1,0 +1,447 @@
+/* ==========================================================
+   DIALOG
+========================================================== */
+/* ==========================================
+   MODAL OVERLAY
+========================================== */
+
+.gx-dialog{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100vw;
+
+    height:100vh;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999999;
+
+}
+
+/* ==========================================
+   MODAL BOX
+========================================== */
+
+.gx-dialog-box{
+
+    display:flex;
+
+    flex-direction:column;
+
+    width:1100px;
+
+    max-width:95vw;
+
+    max-height:90vh;
+
+    background:#fff;
+
+    border-radius:16px;
+
+}
+.patrol-form{
+
+    width:1100px;
+
+    max-width:95vw;
+
+    background:#fff;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.gx-dialog-header{
+
+    padding:20px 25px;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.gx-dialog-header h2{
+
+    margin:0;
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+   STEPPER
+========================================================== */
+
+.gx-stepper{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:25px;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.gx-stepper div{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.gx-stepper svg{
+
+    font-size:22px;
+
+}
+
+.gx-stepper .active{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+.gx-stepper .inactive{
+
+    background:#f4f6f9;
+
+    color:#777;
+
+}
+
+/* ==========================================================
+   CONTENT
+========================================================== */
+
+.gx-step-content{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:25px;
+
+}
+
+/* ==========================================================
+   GRID
+========================================================== */
+
+.gx-form-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.gx-full-width{
+
+    grid-column:1/-1;
+
+}
+
+/* ==========================================================
+   FORM
+========================================================== */
+
+.gx-form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.gx-form-group label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+    color:#444;
+
+}
+
+.gx-form-group input,
+
+.gx-form-group select,
+
+.gx-form-group textarea{
+
+    width:100%;
+
+    padding:12px 14px;
+
+    border:1px solid #d9d9d9;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.25s;
+
+}
+
+.gx-form-group input:focus,
+
+.gx-form-group select:focus,
+
+.gx-form-group textarea:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.12);
+
+}
+
+/* ==========================================================
+   CHECKPOINT CARD
+========================================================== */
+
+.gx-checkpoint-card{
+
+    background:#fff;
+
+    border:1px solid #ececec;
+
+    border-radius:14px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+    transition:.25s;
+
+}
+
+.gx-checkpoint-card:hover{
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.gx-card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.gx-card-header h4{
+
+    margin:0;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+/* ==========================================================
+   ACTIONS
+========================================================== */
+
+.gx-checkpoint-actions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:10px;
+
+    margin-top:20px;
+
+}
+
+/* ==========================================================
+   REVIEW
+========================================================== */
+
+.gx-review{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.gx-review-card{
+
+    border:1px solid #ececec;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    background:#fff;
+
+}
+
+.gx-review-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+.gx-review-card label{
+
+    font-size:13px;
+
+    color:#777;
+
+    display:block;
+
+}
+
+.gx-review-card p{
+
+    margin-top:6px;
+
+    font-weight:600;
+
+}
+
+.gx-review-success{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:20px;
+
+    background:#ecfdf5;
+
+    border:1px solid #22c55e;
+
+    border-radius:12px;
+
+}
+
+.gx-review-success svg{
+
+    font-size:42px;
+
+    color:#22c55e;
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.gx-dialog-footer{
+
+    flex-shrink:0;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:12px;
+
+    padding:20px;
+
+    border-top:1px solid #eee;
+
+    background:#fff;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:768px){
+
+    .gx-form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .gx-review-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .gx-stepper{
+
+        flex-wrap:wrap;
+
+    }
+
+}
+
+
+
+
+

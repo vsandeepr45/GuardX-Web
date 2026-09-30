@@ -1,0 +1,499 @@
+/*==========================
+CLIENT STATUS DIALOG
+===========================*/
+
+.gx-status-modal{
+
+    width:550px;
+
+    background:#fff;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    animation:popup .25s ease;
+
+}
+
+.gx-status-header{
+
+    padding:18px 25px;
+
+    background:#1e40af;
+
+    color:#fff;
+
+}
+
+.gx-status-body{
+
+    padding:30px;
+
+    text-align:center;
+
+}
+
+.gx-status-body h3{
+
+    margin-bottom:10px;
+
+    color:#111827;
+
+}
+
+.gx-status-change{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:30px;
+
+    margin:35px 0;
+
+}
+
+.gx-status-box{
+
+    width:170px;
+
+}
+
+.gx-status-box span{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    color:#666;
+
+    font-size:14px;
+
+}
+
+.status-active{
+
+    background:#dcfce7;
+
+    color:#15803d;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+}
+
+.status-inactive{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+}
+
+.gx-status-arrow{
+
+    font-size:24px;
+
+    color:#2563eb;
+
+}
+
+.gx-status-message{
+
+    margin-top:20px;
+
+    color:#555;
+
+}
+
+.gx-status-footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:10px;
+
+    padding:20px;
+
+    border-top:1px solid #eee;
+
+}
+
+/* =====================================
+   PAGE HEADER
+===================================== */
+
+.page-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.page-header h2{
+
+    margin:0;
+
+    color:#1e293b;
+
+}
+
+.page-header p{
+
+    margin-top:5px;
+
+    color:#64748b;
+
+}
+
+/* =====================================
+   TOOLBAR
+===================================== */
+
+.toolbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.toolbar-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+    align-items:center;
+
+}
+
+.search-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:#fff;
+
+    border-radius:10px;
+
+    padding:10px 15px;
+
+    width:320px;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+
+}
+
+.search-box input{
+
+    border:none;
+
+    outline:none;
+
+    width:100%;
+
+}
+
+.btn-primary{
+
+    background:#2563eb;
+
+    color:#fff;
+
+    border:none;
+
+    padding:11px 22px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+.btn-primary:hover{
+
+    background:#1d4ed8;
+
+}
+
+.btn-light{
+
+    background:#fff;
+
+    border:1px solid #ddd;
+
+    padding:11px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+
+.gx-company-summary{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+    margin-bottom:25px;
+
+}
+
+.gx-summary-card{
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+.gx-summary-card h2{
+
+    margin:0;
+
+    font-size:32px;
+
+}
+
+.gx-summary-icon{
+
+    font-size:42px;
+
+    opacity:.3;
+
+}
+
+.total{
+
+    border-left:5px solid #2563eb;
+
+}
+
+.active{
+
+    border-left:5px solid #16a34a;
+
+}
+
+.inactive{
+
+    border-left:5px solid #dc2626;
+
+}
+
+.gx-table-container{
+
+    background:#fff;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    box-shadow:0 4px 20px rgba(0,0,0,.08);
+
+}
+
+.gx-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.gx-table th{
+
+    background:#eff6ff;
+
+    padding:16px;
+
+    text-align:left;
+
+}
+
+.gx-table td{
+
+    padding:16px;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.gx-table tbody tr:hover{
+
+    background:#f8fafc;
+
+}
+
+.badge-success{
+
+    background:#dcfce7;
+
+    color:#166534;
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+}
+
+.badge-danger{
+
+    background:#fee2e2;
+
+    color:#b91c1c;
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+}
+
+.btn-icon{
+
+    border:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    margin-right:10px;
+
+}
+
+.btn-view{
+
+    color:#2563eb;
+
+}
+
+.btn-edit{
+
+    color:#16a34a;
+
+}
+
+.btn-status{
+
+    color:#ca8a04;
+
+}
+
+.btn-delete{
+
+    color:#dc2626;
+
+}
+
+.gx-company-form{
+
+    width:1000px;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+}
+
+.gx-form-section{
+
+    margin-bottom:25px;
+
+}
+
+.gx-form-section h3{
+
+    margin-bottom:15px;
+
+    color:#2563eb;
+
+}
+
+.gx-grid-2{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+.gx-grid-full{
+
+    grid-column:1/3;
+
+}
+
+.gx-form-section input,
+
+.gx-form-section select,
+
+.gx-form-section textarea{
+
+    width:100%;
+
+    padding:11px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+}
+
+.error{
+
+    color:#dc2626;
+
+    font-size:12px;
+
+}
+

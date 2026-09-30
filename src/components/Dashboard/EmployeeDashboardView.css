@@ -1,0 +1,2143 @@
+/* ============================================================
+   GUARDX — SECURITY GUARD COMMAND DASHBOARD
+   New structure: command header → KPI strip → analytics →
+   duty timeline → readiness.
+   ============================================================ */
+
+.gxd-dashboard {
+    width: 100%;
+    padding: 6px 0 30px;
+    color: var(--gx-text, #0f172a);
+}
+
+.gxd-dashboard * {
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   COMMAND HEADER
+   ============================================================ */
+
+.gxd-command-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    padding: 24px 26px;
+    margin-bottom: 18px;
+
+    border-radius: 24px;
+
+    background:
+        radial-gradient(
+            circle at 88% 18%,
+            rgba(96, 165, 250, .22),
+            transparent 34%
+        ),
+        linear-gradient(
+            135deg,
+            #071a3d 0%,
+            #0d2b63 52%,
+            #123f8c 100%
+        );
+
+    color: #fff;
+
+    box-shadow:
+        0 18px 45px rgba(15, 23, 42, .18);
+}
+
+.gxd-command-copy {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.gxd-command-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255, 255, 255, .13);
+
+    font-size: 24px;
+}
+
+.gxd-command-header .gxd-eyebrow {
+    color: #93c5fd;
+}
+
+.gxd-command-header h1 {
+    margin: 4px 0 4px;
+
+    font-size: 25px;
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -.4px;
+}
+
+.gxd-command-header p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, .70);
+
+    font-size: 12px;
+}
+
+.gxd-command-state {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    min-width: 160px;
+
+    padding: 12px 14px;
+
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .10);
+}
+
+.gxd-command-state strong {
+    display: block;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.gxd-command-state small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: rgba(255, 255, 255, .58);
+
+    font-size: 9px;
+}
+
+.gxd-live-dot {
+    width: 9px;
+    height: 9px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 0 5px rgba(34, 197, 94, .12),
+        0 0 14px rgba(34, 197, 94, .50);
+}
+
+
+/* ============================================================
+   COMMON
+   ============================================================ */
+
+.gxd-eyebrow {
+    display: block;
+
+    color: var(--gx-primary, #2563eb);
+
+    font-size: 9px;
+    line-height: 1;
+    font-weight: 900;
+
+    letter-spacing: 1.35px;
+}
+
+.gxd-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+}
+
+.gxd-section-header h2 {
+    margin: 5px 0 0;
+
+    color: var(--gx-text, #0f172a);
+
+    font-size: 18px;
+    line-height: 1.15;
+    font-weight: 800;
+
+    letter-spacing: -.25px;
+}
+
+.gxd-section-meta {
+    padding: 7px 10px;
+
+    border-radius: 9px;
+
+    background: var(--gx-surface-2, #f1f5f9);
+    color: var(--gx-text-light, #64748b);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+.gxd-panel {
+    min-width: 0;
+
+    padding: 21px;
+
+    border-radius: 21px;
+
+    background: var(--gx-surface, #fff);
+
+    border: 1px solid var(--gx-border, #e2e8f0);
+
+    box-shadow:
+        0 8px 28px rgba(15, 23, 42, .055);
+}
+
+
+/* ============================================================
+   KPI STRIP
+   ============================================================ */
+
+.gxd-metrics {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 13px;
+
+    margin-bottom: 18px;
+}
+
+.gxd-metric {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    min-height: 105px;
+
+    padding: 17px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: var(--gx-surface, #fff);
+
+    border: 1px solid var(--gx-border, #e2e8f0);
+
+    box-shadow:
+        0 7px 24px rgba(15, 23, 42, .045);
+}
+
+.gxd-metric::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background: var(--metric-color, #2563eb);
+}
+
+.gxd-metric-icon {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 13px;
+
+    background: var(--metric-bg, #eff6ff);
+    color: var(--metric-color, #2563eb);
+
+    font-size: 16px;
+}
+
+.gxd-metric-copy {
+    min-width: 0;
+}
+
+.gxd-metric-copy > span {
+    display: block;
+
+    color: var(--gx-text-light, #64748b);
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: .35px;
+}
+
+.gxd-metric-copy strong {
+    display: block;
+
+    margin-top: 4px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: var(--gx-text, #0f172a);
+
+    font-size: 20px;
+    line-height: 1.1;
+    font-weight: 850;
+}
+
+.gxd-metric-copy small {
+    display: block;
+
+    margin-top: 5px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: var(--gx-text-light, #64748b);
+
+    font-size: 9px;
+}
+
+.gxd-metric-blue {
+    --metric-color: #2563eb;
+    --metric-bg: #eff6ff;
+}
+
+.gxd-metric-green {
+    --metric-color: #16a34a;
+    --metric-bg: #f0fdf4;
+}
+
+.gxd-metric-purple {
+    --metric-color: #7c3aed;
+    --metric-bg: #f5f3ff;
+}
+
+.gxd-metric-red {
+    --metric-color: #dc2626;
+    --metric-bg: #fef2f2;
+}
+
+
+/* ============================================================
+   ANALYTICS GRID
+   ============================================================ */
+
+.gxd-main-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.85fr)
+        minmax(300px, .9fr);
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+
+/* ============================================================
+   ACTIVITY CHART
+   ============================================================ */
+
+.gxd-chart-legend {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    margin-bottom: 4px;
+
+    color: var(--gx-text-light, #64748b);
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.gxd-chart-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.chart-key {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+}
+
+.chart-key.patrol {
+    background: #93c5fd;
+}
+
+.chart-key.completed {
+    background: #2563eb;
+}
+
+.gxd-chart {
+    position: relative;
+
+    width: 100%;
+    height: 250px;
+}
+
+.gxd-chart svg {
+    width: 100%;
+    height: 220px;
+
+    overflow: visible;
+}
+
+.chart-grid {
+    stroke: var(--gx-border, #e2e8f0);
+    stroke-width: 1;
+    stroke-dasharray: 4 6;
+}
+
+.chart-bar {
+    fill: rgba(147, 197, 253, .38);
+}
+
+.chart-line {
+    stroke: #2563eb;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.chart-point {
+    fill: var(--gx-surface, #fff);
+    stroke: #2563eb;
+    stroke-width: 3;
+}
+
+.gxd-chart-labels {
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    margin-top: -3px;
+
+    padding-left: 5%;
+    padding-right: 2%;
+
+    color: var(--gx-text-light, #64748b);
+
+    font-size: 9px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+.gxd-empty-chart {
+    height: 250px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--gx-text-light, #64748b);
+
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   PATROL RING
+   ============================================================ */
+
+.gxd-patrol-content {
+    display: flex;
+    align-items: center;
+
+    gap: 26px;
+
+    min-height: 205px;
+}
+
+.gxd-ring-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 165px;
+}
+
+.gxd-ring {
+    width: 165px;
+    height: 165px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    position: relative;
+}
+
+.gxd-ring::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 13px;
+
+    border-radius: 50%;
+
+    background: var(--gx-surface, #fff);
+}
+
+.gxd-ring-center {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gxd-ring-center strong {
+    color: var(--gx-text, #0f172a);
+
+    font-size: 29px;
+    line-height: 1;
+
+    font-weight: 900;
+}
+
+.gxd-ring-center span {
+    margin-top: 5px;
+
+    color: var(--gx-text-light, #64748b);
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.gxd-legend {
+    flex: 1;
+
+    display: grid;
+
+    gap: 11px;
+}
+
+.gxd-legend > div {
+    display: grid;
+
+    grid-template-columns:
+        9px 1fr auto;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--gx-text-light, #64748b);
+
+    font-size: 10px;
+}
+
+.gxd-legend strong {
+    color: var(--gx-text, #0f172a);
+
+    font-size: 12px;
+}
+
+.gxd-legend-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+}
+
+.gxd-legend-dot.completed {
+    background: #22c55e;
+}
+
+.gxd-legend-dot.running {
+    background: #3b82f6;
+}
+
+.gxd-legend-dot.assigned {
+    background: #f59e0b;
+}
+
+.gxd-legend-dot.missed {
+    background: #ef4444;
+}
+
+
+/* ============================================================
+   BOTTOM GRID
+   ============================================================ */
+
+.gxd-bottom-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.45fr)
+        minmax(320px, .85fr);
+
+    gap: 18px;
+}
+
+
+/* ============================================================
+   DUTY TIMELINE
+   ============================================================ */
+
+.gxd-timeline {
+    position: relative;
+
+    display: grid;
+
+    gap: 0;
+}
+
+.gxd-timeline-line {
+    position: absolute;
+
+    left: 18px;
+    top: 22px;
+    bottom: 22px;
+
+    width: 1px;
+
+    background: var(--gx-border, #e2e8f0);
+}
+
+.gxd-event {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        37px 1fr auto;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-height: 64px;
+}
+
+.gxd-event-marker {
+    position: relative;
+    z-index: 1;
+
+    width: 37px;
+    height: 37px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    border: 4px solid var(--gx-surface, #fff);
+
+    font-size: 12px;
+}
+
+.gxd-event-marker.start {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.gxd-event-marker.location {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.gxd-event-marker.face {
+    background: #ede9fe;
+    color: #7c3aed;
+}
+
+.gxd-event-marker.end {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.gxd-arrow-icon {
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.gxd-event-copy strong {
+    display: block;
+
+    color: var(--gx-text, #0f172a);
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.gxd-event-copy span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--gx-text-light, #64748b);
+
+    font-size: 9px;
+}
+
+.gxd-event-state {
+    padding: 6px 9px;
+
+    border-radius: 20px;
+
+    font-size: 8px;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+.gxd-event-state.success {
+    background: #f0fdf4;
+    color: #15803d;
+}
+
+.gxd-event-state.warning {
+    background: #fffbeb;
+    color: #b45309;
+}
+
+.gxd-event-state.danger {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+.gxd-event-state.neutral {
+    background: var(--gx-surface-2, #f1f5f9);
+    color: var(--gx-text-light, #64748b);
+}
+
+
+/* ============================================================
+   READINESS
+   ============================================================ */
+
+.gxd-readiness-list {
+    display: grid;
+
+    gap: 8px;
+}
+
+.gxd-readiness-row {
+    display: grid;
+
+    grid-template-columns:
+        35px 1fr 14px;
+
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 12px;
+
+    border-radius: 14px;
+
+    background: var(--gx-surface-2, #f8fafc);
+
+    border: 1px solid transparent;
+}
+
+.gxd-readiness-row:hover {
+    border-color: var(--gx-border, #e2e8f0);
+}
+
+.gxd-readiness-icon {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    font-size: 14px;
+}
+
+.gxd-readiness-icon.ok {
+    background: #f0fdf4;
+    color: #16a34a;
+}
+
+.gxd-readiness-icon.alert {
+    background: #fff7ed;
+    color: #ea580c;
+}
+
+.gxd-readiness-row strong {
+    display: block;
+
+    color: var(--gx-text, #0f172a);
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.gxd-readiness-row span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--gx-text-light, #64748b);
+
+    font-size: 9px;
+}
+
+.gxd-row-arrow {
+    color: var(--gx-text-light, #94a3b8);
+
+    font-size: 9px;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1250px) {
+
+    .gxd-metrics {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .gxd-main-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gxd-bottom-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+
+    .gxd-command-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .gxd-command-state {
+        width: 100%;
+    }
+
+    .gxd-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .gxd-patrol-content {
+        flex-direction: column;
+    }
+
+    .gxd-ring-wrap {
+        flex-basis: auto;
+    }
+
+    .gxd-chart {
+        overflow-x: auto;
+    }
+
+    .gxd-chart svg {
+        min-width: 620px;
+    }
+
+    .gxd-chart-labels {
+        min-width: 620px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .gxd-command-header {
+        padding: 20px;
+        border-radius: 19px;
+    }
+
+    .gxd-command-header h1 {
+        font-size: 21px;
+    }
+
+    .gxd-panel {
+        padding: 17px;
+        border-radius: 18px;
+    }
+
+    .gxd-event {
+        grid-template-columns:
+            34px 1fr;
+
+        padding: 4px 0;
+    }
+
+    .gxd-event-state {
+        grid-column: 2;
+        justify-self: start;
+    }
+
+    .gxd-timeline-line {
+        left: 16px;
+    }
+
+    .gxd-event-marker {
+        width: 34px;
+        height: 34px;
+    }
+}
+/* ============================================================
+   GUARDX EMPLOYEE DASHBOARD
+   NEW OPERATIONAL SECTIONS
+============================================================ */
+
+
+/* ============================================================
+   GENERAL PANEL IMPROVEMENTS
+============================================================ */
+
+.gxd-panel {
+    position: relative;
+    overflow: hidden;
+}
+
+.gxd-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+
+/* ============================================================
+   FEATURE ICONS
+============================================================ */
+
+.gxd-feature-icon {
+    width: 52px;
+    height: 52px;
+
+    min-width: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    font-size: 21px;
+
+    background: #f1f5f9;
+}
+
+.gxd-feature-icon.deployment {
+    background: #eef2ff;
+    color: #4f46e5;
+}
+
+.gxd-feature-icon.visitor {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.gxd-feature-icon.helpdesk {
+    background: #f0fdf4;
+    color: #16a34a;
+}
+
+.gxd-feature-icon.attendance {
+    background: #f5f3ff;
+    color: #7c3aed;
+}
+
+
+/* ============================================================
+   DEPLOYMENT
+============================================================ */
+
+.gxd-deployment-panel {
+    min-height: 280px;
+}
+
+.gxd-deployment-card {
+    margin-top: 22px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc 0%,
+            #eef2ff 100%
+        );
+
+    border: 1px solid #e2e8f0;
+}
+
+
+.gxd-deployment-main {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+}
+
+
+.gxd-deployment-main > div:last-child {
+    min-width: 0;
+}
+
+
+.gxd-deployment-main strong {
+    display: block;
+
+    font-size: 18px;
+
+    font-weight: 750;
+
+    color: #0f172a;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.gxd-deployment-main span {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    color: #64748b;
+}
+
+
+.gxd-deployment-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+
+.gxd-deployment-grid > div {
+    padding: 13px 14px;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
+}
+
+
+.gxd-deployment-grid small {
+    display: block;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+
+    color: #94a3b8;
+
+    font-weight: 700;
+
+    margin-bottom: 5px;
+}
+
+
+.gxd-deployment-grid strong {
+    display: block;
+
+    color: #1e293b;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/* ============================================================
+   VISITOR
+============================================================ */
+
+.gxd-visitor-panel {
+    min-height: 280px;
+}
+
+
+.gxd-visitor-hero {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 22px;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+}
+
+
+.gxd-visitor-hero strong {
+    display: block;
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    color: #0f172a;
+}
+
+
+.gxd-visitor-hero span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+.gxd-visitor-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 10px;
+
+    margin-top: 14px;
+}
+
+
+.gxd-visitor-stats > div {
+    padding: 13px;
+
+    border-radius: 14px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+
+    text-align: center;
+}
+
+
+.gxd-visitor-stats span {
+    display: block;
+
+    font-size: 11px;
+
+    color: #64748b;
+
+    margin-bottom: 5px;
+}
+
+
+.gxd-visitor-stats strong {
+    font-size: 20px;
+
+    color: #0f172a;
+}
+
+
+/* ============================================================
+   HELP DESK
+============================================================ */
+
+.gxd-helpdesk-panel {
+    min-height: 280px;
+}
+
+
+.gxd-helpdesk-main {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 22px;
+}
+
+
+.gxd-helpdesk-main strong {
+    display: block;
+
+    color: #0f172a;
+
+    font-size: 16px;
+
+    font-weight: 750;
+}
+
+
+.gxd-helpdesk-main span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+.gxd-helpdesk-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+
+.gxd-helpdesk-stats > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+}
+
+
+.gxd-helpdesk-stats span {
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+
+.gxd-helpdesk-stats strong {
+    color: #0f172a;
+
+    font-size: 20px;
+}
+
+
+/* ============================================================
+   OPERATIONS
+============================================================ */
+
+.gxd-operations-panel {
+    min-height: 280px;
+}
+
+
+.gxd-operations-list {
+    display: flex;
+
+    flex-direction: column;
+
+    margin-top: 12px;
+}
+
+
+.gxd-operation-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #eef2f7;
+}
+
+
+.gxd-operation-row:last-child {
+    border-bottom: none;
+}
+
+
+.gxd-operation-icon {
+    width: 40px;
+
+    height: 40px;
+
+    min-width: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #f8fafc;
+
+    color: #475569;
+
+    font-size: 16px;
+}
+
+
+.gxd-operation-copy {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.gxd-operation-copy strong {
+    display: block;
+
+    color: #0f172a;
+
+    font-size: 13px;
+
+    font-weight: 750;
+}
+
+
+.gxd-operation-copy span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #64748b;
+
+    font-size: 11px;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+
+/* ============================================================
+   EMPTY STATES
+============================================================ */
+
+.gxd-empty-state {
+    min-height: 180px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    gap: 7px;
+
+    color: #94a3b8;
+}
+
+
+.gxd-empty-state svg {
+    font-size: 28px;
+
+    margin-bottom: 4px;
+}
+
+
+.gxd-empty-state strong {
+    color: #475569;
+
+    font-size: 14px;
+}
+
+
+.gxd-empty-state span {
+    max-width: 280px;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+.gxd-small-empty {
+    margin-top: 12px;
+
+    padding: 10px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+}
+
+
+/* ============================================================
+   EVENT STATUS
+============================================================ */
+
+.gxd-event-state.success {
+    background: #dcfce7;
+
+    color: #15803d;
+}
+
+
+.gxd-event-state.warning {
+    background: #fef3c7;
+
+    color: #b45309;
+}
+
+
+.gxd-event-state.danger {
+    background: #fee2e2;
+
+    color: #b91c1c;
+}
+
+
+.gxd-event-state.neutral {
+    background: #f1f5f9;
+
+    color: #64748b;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 1100px) {
+
+    .gxd-metrics {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    .gxd-main-grid,
+    .gxd-bottom-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .gxd-metrics {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .gxd-dashboard {
+        padding: 14px;
+    }
+
+
+    .gxd-command-header {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+    }
+
+
+    .gxd-command-state {
+        width: 100%;
+    }
+
+
+    .gxd-metrics {
+        grid-template-columns: 1fr;
+    }
+
+
+    .gxd-deployment-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .gxd-visitor-stats,
+    .gxd-helpdesk-stats {
+        grid-template-columns: 1fr;
+    }
+
+
+    .gxd-operation-row {
+        align-items: flex-start;
+    }
+
+
+    .gxd-operation-row
+    .gxd-event-state {
+        margin-left: auto;
+    }
+
+}
+/* ============================================================
+   GUARDX AI COMMAND CENTER ANIMATION
+============================================================ */
+
+
+/* ============================================================
+   AI RING
+============================================================ */
+
+.gxd-ai-ring-wrap {
+
+    position: relative;
+
+    width: 155px;
+    height: 155px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+/* Main SVG */
+
+.gxd-patrol-ring-svg {
+
+    width: 150px;
+    height: 150px;
+
+    transform: rotate(-90deg);
+
+    overflow: visible;
+
+}
+
+
+/* Track */
+
+.gxd-ring-track {
+
+    fill: none;
+
+    stroke: #edf2f7;
+
+    stroke-width: 9;
+}
+
+
+/* Segments */
+
+.gxd-ring-segment {
+    fill: none;
+
+    stroke-width: 10;
+
+    stroke-linecap: round;
+
+    animation:
+        gxdRingReveal
+        1.4s
+        cubic-bezier(.22,.61,.36,1)
+        forwards;
+
+    transform-origin: 60px 60px;
+}
+
+
+@keyframes gxdRingReveal {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.85);
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+
+}
+
+
+/* Completed */
+
+.gxd-ring-completed {
+
+    stroke: #22c55e;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(34,197,94,.35)
+        );
+}
+
+
+/* Running */
+
+.gxd-ring-running {
+
+    stroke: #3b82f6;
+
+    filter:
+        drop-shadow(
+            0 0 6px
+            rgba(59,130,246,.4)
+        );
+}
+
+
+/* Missed */
+
+.gxd-ring-missed {
+
+    stroke: #ef4444;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(239,68,68,.35)
+        );
+}
+
+
+/* ============================================================
+   MOVING ENERGY ORBIT
+============================================================ */
+
+.gxd-ai-ring-orbit {
+
+    position: absolute;
+
+    inset: 7px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    animation:
+        gxdOrbitRotate
+        5s
+        linear
+        infinite;
+}
+
+
+.gxd-ai-ring-orbit::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -2px;
+    left: 50%;
+
+    width: 10px;
+    height: 10px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background: #3b82f6;
+
+    box-shadow:
+        0 0 8px #3b82f6,
+        0 0 18px rgba(59,130,246,.5);
+}
+
+
+.gxd-ai-ring-orbit::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    border:
+
+        1px solid
+        rgba(59,130,246,.08);
+
+}
+
+
+@keyframes gxdOrbitRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* ============================================================
+   AI CORE
+============================================================ */
+
+.gxd-ai-ring-center {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: none;
+}
+
+
+.gxd-ai-ring-center strong {
+
+    font-size: 26px;
+
+    line-height: 1;
+
+    font-weight: 850;
+
+    color: #0f172a;
+
+    letter-spacing: -1px;
+}
+
+
+.gxd-ai-ring-center small {
+
+    margin-top: 5px;
+
+    font-size: 8px;
+
+    letter-spacing: .16em;
+
+    font-weight: 800;
+
+    color: #3b82f6;
+
+    animation:
+        gxdLiveText
+        2s
+        ease-in-out
+        infinite;
+}
+
+
+.gxd-ai-core {
+
+    position: absolute;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(59,130,246,.10),
+            transparent 70%
+        );
+
+    animation:
+        gxdCorePulse
+        2.2s
+        ease-in-out
+        infinite;
+}
+
+
+.gxd-ai-core span {
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #3b82f6;
+
+    box-shadow:
+        0 0 8px #3b82f6;
+}
+
+
+@keyframes gxdCorePulse {
+
+    0%,
+    100% {
+        transform: scale(.8);
+
+        opacity: .45;
+    }
+
+    50% {
+        transform: scale(1.25);
+
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes gxdLiveText {
+
+    0%,
+    100% {
+        opacity: .55;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+/* ============================================================
+   CHART LIVE STATUS
+============================================================ */
+
+.gxd-chart-live-status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 2px;
+    margin-bottom: 7px;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    background: #f0fdf4;
+
+    color: #15803d;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: .08em;
+}
+
+
+.gxd-live-pulse {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 0 0
+        rgba(34,197,94,.45);
+
+    animation:
+        gxdLivePulse
+        1.7s
+        infinite;
+}
+
+
+@keyframes gxdLivePulse {
+
+    0% {
+        box-shadow:
+            0 0 0 0
+            rgba(34,197,94,.45);
+    }
+
+    70% {
+        box-shadow:
+            0 0 0 8px
+            rgba(34,197,94,0);
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 0
+            rgba(34,197,94,0);
+    }
+
+}
+
+
+/* ============================================================
+   AI BAR EFFECT
+============================================================ */
+
+.gxd-ai-bar-group {
+
+    transform-origin:
+        center bottom;
+
+    animation:
+        gxdBarEnergy
+        2.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+.gxd-ai-bar-group:nth-child(2n) {
+
+    animation-delay:
+        .5s;
+
+}
+
+
+.gxd-ai-bar-group:nth-child(3n) {
+
+    animation-delay:
+        1s;
+
+}
+
+
+@keyframes gxdBarEnergy {
+
+    0%,
+    100% {
+        opacity: .88;
+    }
+
+    50% {
+        opacity: 1;
+
+        filter:
+            brightness(1.12);
+    }
+
+}
+
+
+/* Glow behind bar */
+
+.gxd-ai-bar-glow {
+
+    fill: rgba(59,130,246,.13);
+
+    filter:
+        blur(7px);
+}
+
+
+/* ============================================================
+   MOVING LINE
+============================================================ */
+
+.chart-line {
+
+    stroke: #2563eb;
+
+    stroke-width: 3;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(37,99,235,.25)
+        );
+}
+
+
+/* ============================================================
+   DATA POINT GLOW
+============================================================ */
+
+.gxd-point-glow {
+
+    fill: rgba(37,99,235,.12);
+
+    animation:
+        gxdPointWave
+        2s
+        ease-out
+        infinite;
+}
+
+
+@keyframes gxdPointWave {
+
+    0% {
+        r: 5;
+
+        opacity: .8;
+    }
+
+    70% {
+        r: 13;
+
+        opacity: 0;
+    }
+
+    100% {
+        r: 13;
+
+        opacity: 0;
+    }
+
+}
+
+
+.chart-point {
+
+    fill: #ffffff;
+
+    stroke: #2563eb;
+
+    stroke-width: 3;
+
+}
+
+
+/* ============================================================
+   PATROL RUNNING INDICATOR
+============================================================ */
+
+.gxd-legend-dot.running {
+
+    animation:
+        gxdRunningDot
+        1.5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes gxdRunningDot {
+
+    0%,
+    100% {
+        transform: scale(1);
+
+        box-shadow:
+            0 0 0
+            rgba(59,130,246,0);
+    }
+
+    50% {
+        transform: scale(1.35);
+
+        box-shadow:
+            0 0 10px
+            rgba(59,130,246,.45);
+    }
+
+}

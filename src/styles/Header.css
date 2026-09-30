@@ -1,0 +1,421 @@
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.gx-header{
+
+    height:80px;
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(18px);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 30px;
+
+    border-bottom:1px solid rgba(226,232,240,.8);
+
+    box-shadow:0 8px 30px rgba(15,23,42,.06);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+}
+
+/* ==========================================================
+   LEFT
+========================================================== */
+
+.gx-header-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.gx-menu-btn{
+
+    width:46px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#ffffff;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:18px;
+
+    color:#2563eb;
+
+    transition:.25s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.gx-menu-btn:hover{
+
+    transform:translateY(-2px);
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+.gx-header-left h2{
+
+    margin:0;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+}
+
+.gx-header-left span{
+
+    color:#64748b;
+
+    font-size:13px;
+
+}
+
+/* ==========================================================
+   SEARCH
+========================================================== */
+
+.gx-header-center{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.gx-search-box{
+
+    width:420px;
+
+    background:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:12px 18px;
+
+    border-radius:40px;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
+
+}
+
+.gx-search-box svg{
+
+    color:#64748b;
+
+}
+
+.gx-search-box input{
+
+    border:none;
+
+    outline:none;
+
+    width:100%;
+
+    font-size:14px;
+
+    background:transparent;
+
+}
+
+/* ==========================================================
+   RIGHT
+========================================================== */
+
+.gx-header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+
+
+
+/* ==========================================================
+   PROFILE
+========================================================== */
+
+.gx-profile{
+
+    position:relative;
+
+}
+
+.gx-profile-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:#fff;
+
+    padding:8px 15px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
+
+}
+
+.gx-profile-box:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.gx-profile-box strong{
+
+    display:block;
+
+    font-size:14px;
+
+    color:#0f172a;
+
+}
+
+.gx-profile-box small{
+
+    color:#64748b;
+
+}
+
+.gx-profile-box svg{
+
+    color:#2563eb;
+
+}
+
+/* ==========================================================
+   DROPDOWN
+========================================================== */
+
+.gx-dropdown{
+
+    position:absolute;
+
+    right:0;
+
+    top:70px;
+
+    width:290px;
+
+    background:#fff;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+
+    animation:dropdown .25s ease;
+
+    z-index:999;
+
+}
+
+@keyframes dropdown{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.gx-dropdown-header{
+
+    background:linear-gradient(
+
+        135deg,
+
+        #2563eb,
+
+        #1d4ed8
+
+    );
+
+    color:#fff;
+
+    text-align:center;
+
+    padding:25px;
+
+}
+
+.gx-dropdown-header svg{
+
+    color:#fff;
+
+    margin-bottom:10px;
+
+}
+
+.gx-dropdown-header h4{
+
+    margin:0;
+
+    font-size:18px;
+
+}
+
+.gx-dropdown-header span{
+
+    font-size:13px;
+
+    opacity:.85;
+
+}
+
+.gx-dropdown-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px 20px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    color:#334155;
+
+    font-weight:500;
+
+}
+
+.gx-dropdown-item:hover{
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+}
+
+.gx-dropdown-item svg{
+
+    width:18px;
+
+}
+
+.gx-logout{
+
+    color:#dc2626;
+
+    border-top:1px solid #eee;
+
+}
+
+.gx-logout:hover{
+
+    background:#fee2e2;
+
+    color:#dc2626;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:1100px){
+
+.gx-search-box{
+
+width:300px;
+
+}
+
+}
+
+@media(max-width:900px){
+
+.gx-header{
+
+padding:0 15px;
+
+}
+
+.gx-header-center{
+
+display:none;
+
+}
+
+.gx-profile-box div{
+
+display:none;
+
+}
+
+.gx-profile-box{
+
+padding:8px;
+
+}
+
+}

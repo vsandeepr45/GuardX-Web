@@ -1,0 +1,211 @@
+.site-modal-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+}
+
+.site-modal{
+
+    width:900px;
+
+    max-width:95%;
+
+    background:#fff;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
+
+}
+
+.site-modal-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 24px;
+
+    background:#0F4C81;
+
+    color:#fff;
+
+}
+
+.site-modal-header h2{
+
+    margin:0;
+
+    font-size:22px;
+
+}
+
+.close-btn{
+
+    border:none;
+
+    background:transparent;
+
+    color:#fff;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+}
+
+.site-table-wrapper{
+
+    padding:20px;
+
+    max-height:500px;
+
+    overflow:auto;
+
+}
+
+.site-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.site-table thead{
+
+    background:#f5f5f5;
+
+}
+
+.site-table th{
+
+    padding:14px;
+
+    text-align:left;
+
+    border-bottom:2px solid #ddd;
+
+}
+
+.site-table td{
+
+    padding:14px;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.site-table tbody tr:hover{
+
+    background:#f8fbff;
+
+}
+
+.guard-badge{
+
+    display:inline-block;
+
+    padding:6px 14px;
+
+    background:#E8F5E9;
+
+    color:#2E7D32;
+
+    border-radius:20px;
+
+    font-weight:600;
+
+}
+
+.select-btn{
+
+    background:#0F4C81;
+
+    color:#fff;
+
+    border:none;
+
+    padding:8px 18px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+}
+
+.select-btn:hover{
+
+    background:#1565C0;
+
+}
+
+.no-data{
+
+    text-align:center;
+
+    color:#888;
+
+    padding:35px;
+
+}
+
+.site-picker{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.site-picker input{
+
+    flex:1;
+
+    height:42px;
+
+    border:1px solid #ccc;
+
+    border-radius:6px;
+
+    padding:10px;
+
+}
+
+.site-btn{
+
+    width:140px;
+
+    border:none;
+
+    background:#0F4C81;
+
+    color:#fff;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+}
+
+.site-btn:hover{
+
+    background:#1565C0;
+
+}

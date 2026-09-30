@@ -1,0 +1,322 @@
+/* ===========================================
+   DEPLOYMENT REQUEST MODAL
+=========================================== */
+
+.dr-modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.55);
+    backdrop-filter:blur(5px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    z-index:9999;
+}
+
+.dr-modal-box{
+    width:900px;
+    max-width:100%;
+    background:#ffffff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+    animation:drPopup .25s ease;
+}
+
+@keyframes drPopup{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ===========================================
+   HEADER
+=========================================== */
+
+.dr-header{
+
+    padding:22px 30px;
+
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+
+    color:#fff;
+
+}
+
+.dr-title{
+
+    margin:0;
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+/* ===========================================
+   FORM
+=========================================== */
+
+.dr-form{
+
+    padding:30px;
+
+}
+
+.dr-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+
+}
+
+.dr-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.dr-label{
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+/* ===========================================
+   INPUTS
+=========================================== */
+
+.dr-input,
+.dr-select,
+.dr-textarea{
+
+    width:100%;
+
+    padding:13px 15px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:10px;
+
+    background:#fff;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.25s;
+
+    box-sizing:border-box;
+
+}
+
+.dr-input:focus,
+.dr-select:focus,
+.dr-textarea:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+
+}
+
+.dr-textarea{
+
+    resize:none;
+
+    min-height:120px;
+
+}
+
+/* ===========================================
+   FULL WIDTH
+=========================================== */
+
+.dr-full{
+
+    grid-column:1 / span 2;
+
+}
+
+/* ===========================================
+   BUTTONS
+=========================================== */
+
+.dr-actions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+.dr-save{
+
+    border:none;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    padding:12px 30px;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.dr-save:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+.dr-cancel{
+
+    border:none;
+
+    background:#e5e7eb;
+
+    color:#111827;
+
+    padding:12px 30px;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.dr-cancel:hover{
+
+    background:#d1d5db;
+
+}
+
+/* ===========================================
+   RESPONSIVE
+=========================================== */
+
+@media(max-width:768px){
+
+.dr-modal-box{
+
+    width:100%;
+
+}
+
+.dr-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.dr-full{
+
+    grid-column:auto;
+
+}
+
+.dr-actions{
+
+    flex-direction:column;
+
+}
+
+.dr-save,
+.dr-cancel{
+
+    width:100%;
+
+}
+
+}
+
+.dr-progress{
+
+    position:relative;
+
+    width:120px;
+
+    height:22px;
+
+    background:#ececec;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.dr-progress-bar{
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    height:100%;
+
+    background:#28a745;
+
+    transition:.3s;
+
+}
+
+.dr-progress span{
+
+    position:absolute;
+
+    width:100%;
+
+    text-align:center;
+
+    line-height:22px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    color:#000;
+
+}

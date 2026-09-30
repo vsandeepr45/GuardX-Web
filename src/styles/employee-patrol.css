@@ -1,0 +1,491 @@
+/* ==========================================================
+   PAGE
+========================================================== */
+
+.gx-patrol-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(460px,1fr));
+
+    gap:28px;
+
+    margin-top:25px;
+
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.gx-patrol-card{
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(15,76,129,.12);
+
+    transition:.35s;
+
+    border:1px solid #edf2f7;
+
+    position:relative;
+
+}
+
+.gx-patrol-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 45px rgba(15,76,129,.18);
+
+}
+
+.gx-patrol-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:linear-gradient(90deg,#0f4c81,#1f7ae0,#4cb8ff);
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.gx-patrol-header{
+
+    padding:22px 24px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#f8fbff;
+
+    border-bottom:1px solid #eef2f6;
+
+}
+
+.gx-route-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:23px;
+
+    font-weight:700;
+
+    color:#0f4c81;
+
+}
+
+.gx-route-title svg{
+
+    font-size:22px;
+
+}
+
+.gx-patrol-header small{
+
+    display:block;
+
+    margin-top:6px;
+
+    color:#8a97a8;
+
+}
+
+/* ==========================================================
+   STATUS
+========================================================== */
+
+.gx-status{
+
+    padding:9px 18px;
+
+    border-radius:40px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    color:#fff;
+
+    letter-spacing:.5px;
+
+    text-transform:uppercase;
+
+}
+
+.assigned{
+
+    background:#1565c0;
+
+}
+
+.progress{
+
+    background:#ef6c00;
+
+}
+
+.completed{
+
+    background:#2e7d32;
+
+}
+
+.missed{
+
+    background:#c62828;
+
+}
+
+/* ==========================================================
+   BODY
+========================================================== */
+
+.gx-patrol-section{
+
+    padding:25px;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.gx-info{
+
+    display:flex;
+
+    gap:14px;
+
+    align-items:flex-start;
+
+}
+
+.gx-info svg{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:12px;
+
+    background:#edf5ff;
+
+    color:#1565c0;
+
+    padding:10px;
+
+    flex-shrink:0;
+
+}
+
+.gx-info label{
+
+    display:block;
+
+    color:#94a3b8;
+
+    font-size:12px;
+
+    margin-bottom:4px;
+
+}
+
+.gx-info span{
+
+    font-weight:600;
+
+    color:#1f2937;
+
+}
+
+/* ==========================================================
+   PROGRESS
+========================================================== */
+
+.gx-progress-section{
+
+    padding:0 25px 25px;
+
+}
+
+.gx-progress-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:12px;
+
+    font-weight:700;
+
+    color:#334155;
+
+}
+
+.gx-progress{
+
+    width:100%;
+
+    height:14px;
+
+    background:#e8eef7;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.gx-progress-fill{
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:linear-gradient(90deg,#1565c0,#42a5f5);
+
+    transition:.6s;
+
+}
+
+.gx-progress-stats{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:20px;
+
+}
+
+.gx-progress-stats div{
+
+    text-align:center;
+
+}
+
+.gx-progress-stats strong{
+
+    display:block;
+
+    font-size:22px;
+
+    color:#0f4c81;
+
+}
+
+.gx-progress-stats small{
+
+    color:#94a3b8;
+
+}
+
+/* ==========================================================
+   NEXT CHECKPOINT
+========================================================== */
+
+.gx-next-checkpoint{
+
+    margin:0 25px 25px;
+
+    background:#f8fbff;
+
+    border-radius:16px;
+
+    padding:18px;
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+}
+
+.gx-next-checkpoint svg{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:14px;
+
+    background:#dbeafe;
+
+    color:#1565c0;
+
+    padding:12px;
+
+}
+
+.gx-next-checkpoint label{
+
+    display:block;
+
+    color:#94a3b8;
+
+    font-size:12px;
+
+}
+
+.gx-next-checkpoint span{
+
+    font-size:17px;
+
+    font-weight:700;
+
+    color:#1f2937;
+
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+.gx-patrol-footer{
+
+    padding:0 25px 25px;
+
+}
+
+.gx-btn-start,
+.gx-btn-progress,
+.gx-btn-completed{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:14px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    transition:.3s;
+
+}
+
+.gx-btn-start{
+
+    background:linear-gradient(90deg,#1565c0,#1e88e5);
+
+}
+
+.gx-btn-progress{
+
+    background:linear-gradient(90deg,#ef6c00,#fb8c00);
+
+}
+
+.gx-btn-completed{
+
+    background:linear-gradient(90deg,#2e7d32,#43a047);
+
+}
+
+.gx-btn-start:hover,
+.gx-btn-progress:hover,
+.gx-btn-completed:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ==========================================================
+   EMPTY
+========================================================== */
+
+.gx-empty-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:70px;
+
+    text-align:center;
+
+    color:#64748b;
+
+    font-size:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+/* ==========================================================
+   LOADING
+========================================================== */
+
+.gx-loading{
+
+    text-align:center;
+
+    padding:70px;
+
+    color:#64748b;
+
+    font-size:18px;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:768px){
+
+    .gx-patrol-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .gx-patrol-section{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

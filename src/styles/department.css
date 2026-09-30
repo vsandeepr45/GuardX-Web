@@ -1,0 +1,247 @@
+/* ==========================================
+   MODAL
+========================================== */
+
+.gx-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.55);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    backdrop-filter:blur(4px);
+}
+
+/* ==========================================
+   FORM
+========================================== */
+
+.gx-company-form{
+    width:1100px;
+    max-width:95%;
+    max-height:92vh;
+    overflow:auto;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 25px 60px rgba(0,0,0,.18);
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.gx-status-header{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:#fff;
+    padding:22px 30px;
+}
+
+.gx-status-header h2{
+    margin:0;
+    font-size:24px;
+    font-weight:700;
+}
+
+/* ==========================================
+   BODY
+========================================== */
+
+.gx-status-body{
+    padding:28px;
+    background:#f8fafc;
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.gx-form-section{
+
+    background:#fff;
+
+    border-radius:14px;
+
+    padding:22px;
+
+    margin-bottom:22px;
+
+    border:1px solid #e5e7eb;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.05);
+
+}
+
+.gx-form-section h3{
+
+    margin:0 0 18px;
+
+    color:#1e293b;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   GRID
+========================================== */
+
+.gx-grid-2{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:22px;
+
+}
+
+.gx-grid-3{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+
+}
+
+/* ==========================================
+   LABEL
+========================================== */
+
+.gx-form-section label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+    color:#475569;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   INPUT
+========================================== */
+
+.gx-form-section input,
+
+.gx-form-section select,
+
+.gx-form-section textarea{
+
+    width:100%;
+
+    padding:12px 15px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:10px;
+
+    background:#fff;
+
+    font-size:15px;
+
+    transition:.25s;
+
+}
+
+.gx-form-section input:focus,
+
+.gx-form-section select:focus,
+
+.gx-form-section textarea:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.12);
+
+    outline:none;
+
+}
+
+.gx-form-section textarea{
+
+    resize:vertical;
+
+    min-height:130px;
+
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.gx-status-footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:12px;
+
+    padding:22px 28px;
+
+    border-top:1px solid #e5e7eb;
+
+    background:#fff;
+
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.btn-primary{
+
+    background:#2563eb;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:11px 24px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.btn-primary:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-1px);
+
+}
+
+.btn-light{
+
+    background:#fff;
+
+    border:1px solid #d1d5db;
+
+    border-radius:10px;
+
+    padding:11px 24px;
+
+    cursor:pointer;
+
+}
+
+.btn-light:hover{
+
+    background:#f1f5f9;
+
+}
